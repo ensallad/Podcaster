@@ -5,15 +5,93 @@
 
 <h2>PlayingPage</h2>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 <div>
-    <input id="Submit1" type="submit" value="submit" />   
-   <input id="Text1" type="text" />
+          
+                <img id="imageJoe" src="https://tastelessgentlemen.com/wp-content/uploads/2015/11/joe-rogan-experience.png" alt="" height="250" width="250" />
+                <img id="imageRev" src="http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" alt="" height="250" width="250" />
+           
+            <br />
+            <br />
+            <br />
+            @*<input id="rssTextSubmitJoe" type="submit" value="Joe" />
+            <input id="rssTextSubmitRevolutions" type="submit" value="Revolutions" />*@
+            <input id="rssText" type="text" />
 
-    <audio controls>
-        <source src="http://traffic.libsyn.com/joeroganexp/p1040.mp3" type="audio/ogg">
-        <source src="http://traffic.libsyn.com/joeroganexp/p1040.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+            @*<audio id = playingPageAudio controls="controls">
+                    <source id ="audioOgg"src="http://traffic.libsyn.com/joeroganexp/p1040.mp3" type="audio/ogg">
+                    <source id ="audioMpeg"src="http://traffic.libsyn.com/joeroganexp/p1040.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>*@
+            @*<audio id=playingPageAudio controls="controls">
+                <source id="audioOgg" src="http://traffic.libsyn.com/joeroganexp/p1040.mp3" type="audio/ogg">
+                <source id="audioMpeg" src="http://traffic.libsyn.com/joeroganexp/p1040.mp3" type="audio/mpeg">
+            </audio>*@
 
-</div>
+            <br />
 
+            <audio id="player" controls="controls">
+                @*<source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />*@
+                <source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />
+                <source id="mp3_src" src="https://media.acast.com/sportbladetsplp/avsnitt168-vagenframat/media.mp3" type="audio/mp3" />
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+
+        <script>
+            var rssValue = document.getElementById("rssText").value;
+            var sport = "http://traffic.libsyn.com/revolutionspodcast/7.08-_The_Political_Question_Master.mp3?dest-id=159998";
+            var joe = "http://traffic.libsyn.com/joeroganexp/p1040.mp3";
+
+            //$("#rssTextSubmitJoe").click(function () {
+
+            //    var audio = $("#player");
+            //    //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
+            //    $("#mp3_src").attr("src", joe);
+
+            //    audio[0].pause();
+            //    audio[0].load();//suspends and restores all audio element
+
+            //    audio[0].oncanplaythrough = audio[0].play();
+
+            //});
+            //$("#rssTextSubmitRevolutions").click(function () {
+
+            //    var audio = $("#player");
+            //    //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
+            //    $("#mp3_src").attr("src", sport);
+
+            //    audio[0].pause();
+            //    audio[0].load();//suspends and restores all audio element
+
+            //    audio[0].oncanplaythrough = audio[0].play();
+
+            //});
+
+            $("#imageRev").on("click", function () {
+
+                var audio = $("#player");
+                //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
+                $("#mp3_src").attr("src", sport);
+
+                audio[0].pause();
+                audio[0].load();//suspends and restores all audio element
+
+                audio[0].oncanplaythrough = audio[0].play();
+            });
+
+
+            $("#imageJoe").on("click", function () {
+
+                var audio = $("#player");
+                //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
+                $("#mp3_src").attr("src", joe);
+
+                audio[0].pause();
+                audio[0].load();//suspends and restores all audio element
+
+                audio[0].oncanplaythrough = audio[0].play();
+            });
+        </script>
