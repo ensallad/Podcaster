@@ -24,17 +24,32 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Play", "PlayingPage", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
+       
         @RenderBody()
+             
+       
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+
+            <audio controls>
+                <source src="Sounds/TreMusketorerna.ogg" type="audio/ogg">
+                <source src="Sounds/TreMusketorerna.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </footer>
+        @*<audio controls>
+            <source src="Sounds/ThisAmericanLife.mp3" type="audio/mpeg" />
+            <source src="Sounds/ThisAmericanLife.ogg" type="audio/ogg" />
+        </audio>*@
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

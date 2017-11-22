@@ -26,5 +26,12 @@ namespace Podcaster.Controllers
 
             return View();
         }
+
+        public ActionResult PlayingPage()
+        {
+            ViewBag.Message = "Your Podcast playing page.";
+
+            return View();
+        }
     }
 }
