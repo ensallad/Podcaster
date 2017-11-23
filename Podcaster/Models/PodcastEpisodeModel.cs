@@ -7,51 +7,51 @@ namespace Podcaster.Models
 {
     public class PodcastEpisodeModel
     {
-        private string EpisodeTitle;
-        private string EpisodeUrl;
-        private String publicationDate;
+        //private string EpisodeTitle;
+        //private string EpisodeUrl;
+        //private String publicationDate;
         private string description;
-        private Boolean viewStatus;
+        //private Boolean viewStatus;
 
-       
 
-        public string episodeTitle
-        {
-            get
-            {
-                return EpisodeTitle;
-            }
 
-            set
-            {
-                EpisodeTitle = value;
-            }
-        }
-        public string episodeUrl
-        {
-            get
-            {
-                return EpisodeUrl;
-            }
+        //public string episodeTitle
+        //{
+        //    get
+        //    {
+        //        return EpisodeTitle;
+        //    }
 
-            set
-            {
-                EpisodeUrl = value;
-            }
-        }
+        //    set
+        //    {
+        //        EpisodeTitle = value;
+        //    }
+        //}
+        //public string episodeUrl
+        //{
+        //    get
+        //    {
+        //        return EpisodeUrl;
+        //    }
 
-        public string PublicationDate
-        {
-            get
-            {
-                return publicationDate;
-            }
+        //    set
+        //    {
+        //        EpisodeUrl = value;
+        //    }
+        //}
 
-            set
-            {
-                publicationDate = value;
-            }
-        }
+        //public string PublicationDate
+        //{
+        //    get
+        //    {
+        //        return publicationDate;
+        //    }
+
+        //    set
+        //    {
+        //        publicationDate = value;
+        //    }
+        //}
 
         public string Description
         {
@@ -66,18 +66,18 @@ namespace Podcaster.Models
             }
         }
 
-        public bool ViewStatus
-        {
-            get
-            {
-                return viewStatus;
-            }
+        //public bool ViewStatus
+        //{
+        //    get
+        //    {
+        //        return viewStatus;
+        //    }
 
-            set
-            {
-                viewStatus = value;
-            }
-        }
+        //    set
+        //    {
+        //        viewStatus = value;
+        //    }
+        //}
     }
 
 }
