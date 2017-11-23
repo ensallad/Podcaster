@@ -20,14 +20,15 @@
         </tr>
         @foreach (PodcastEpisodeModel pod in Model)
         {
-            <td>@pod.Description</td>
+            <td><h2>@pod.Description</h2></td>
+            
             <tr>
                 @*<td>@pod.Currency</td>   
                 <td>@pod.Rate</td>*@   
                 
                 <td>@pod.episodeTitle</td>
                 <td>@pod.PublicationDate</td>
-               
+                <td>@pod.episodeUrl</td>
             </tr>
         }
     </table>

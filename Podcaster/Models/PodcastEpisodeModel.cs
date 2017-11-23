@@ -8,7 +8,7 @@ namespace Podcaster.Models
     public class PodcastEpisodeModel
     {
         private string EpisodeTitle;
-        //private string EpisodeUrl;
+        private string EpisodeUrl;
         private String publicationDate;
         private string description;
         //private Boolean viewStatus;
@@ -27,18 +27,18 @@ namespace Podcaster.Models
                 EpisodeTitle = value;
             }
         }
-        //public string episodeUrl
-        //{
-        //    get
-        //    {
-        //        return EpisodeUrl;
-        //    }
+        public string episodeUrl
+        {
+            get
+            {
+                return EpisodeUrl;
+            }
 
-        //    set
-        //    {
-        //        EpisodeUrl = value;
-        //    }
-        //}
+            set
+            {
+                EpisodeUrl = value;
+            }
+        }
 
         public string PublicationDate
         {

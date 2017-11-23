@@ -20,37 +20,9 @@ namespace Podcaster.Controllers
 
             List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
 
-            //fungerar
-            //string uri = "http://freecodecamp.libsyn.com/rss";
-
-
-            //XmlDocument xmlDoc = new XmlDocument();
-            //xmlDoc.Load("http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml");
-            //foreach (XmlNode xmlNode in xmlDoc.DocumentElement.ChildNodes[2].ChildNodes[0].ChildNodes)
-            //{
-
-            //    podEpisode.Add(new ValutaTest
-            //    {
-            //        Currency = xmlNode.Attributes["currency"].Value,
-            //        Rate = xmlNode.Attributes["rate"].Value
-            //    });
-
-            //}
-            //slut på den fungerande
-
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
-            //foreach (XmlNode xmlNode in xmlDoc.DocumentElement.SelectNodes("channel/item"))
-            //{
-            //    //var mainTitle = xmlNode.SelectSingleNode("title");
-            //    podEpisode.Add(new PodcastEpisodeModel
-            //    {
-            //        //Description = xmlNode.Attributes["channel/title"].Value
-            //        //Description = xmlDoc.InnerXml
-            //      //Description = xmlNode.Attributes["description"].Value
 
-
-            //});
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel"))
             {
                 var mainTitle = temp.SelectSingleNode("title");
@@ -58,32 +30,30 @@ namespace Podcaster.Controllers
 
                 podEpisode.Add(new PodcastEpisodeModel
                 {
-                    //Description = xmlNode.Attributes["channel/title"].Value
-                    //Description = xmlDoc.InnerXml
-                    //Description = xmlNode.Attributes["description"].Value
-                    Description = main
-                  
+                    Description = main                  
                 });
 
-
             }
-
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
             {
                 var mainTitle = temp.SelectSingleNode("title");
                 var main = mainTitle.InnerText;
 
                 var mainPub = temp.SelectSingleNode("pubDate");
-                var PubDt = mainTitle.InnerText;
-                podEpisode.Add(new PodcastEpisodeModel
-                {
-                    //Description = xmlNode.Attributes["channel/title"].Value
-                    //Description = xmlDoc.InnerXml
-                    //Description = xmlNode.Attributes["description"].Value
+                var PubDt = mainPub.InnerText;
 
+                var epiUrl = "";
+                var enclosure = temp.SelectSingleNode("enclosure");
+                if (enclosure != null) { epiUrl = enclosure.Attributes["url"].Value; }
+                var media = temp.SelectSingleNode("media");                
+                if (media != null)
+                { epiUrl = media.Attributes["url"].Value; }
+
+                    podEpisode.Add(new PodcastEpisodeModel
+                {             
                     episodeTitle = main,
-                    PublicationDate = PubDt
-                    
+                    PublicationDate = PubDt,
+                    episodeUrl = epiUrl
                 });
 
 
@@ -91,31 +61,6 @@ namespace Podcaster.Controllers
 
             return View(podEpisode);
 
-
-
-            //fungerar lokalt
-            //List<CustomerModel> customers = new List<CustomerModel>();
-
-            ////Load the XML file in XmlDocument.
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load(Server.MapPath("~/Customers.xml"));
-
-            ////Loop through the selected Nodes.
-            //foreach (XmlNode node in doc.SelectNodes("/Customers/Customer"))
-            //{
-            //    //Fetch the Node values and assign it to Model.
-            //    customers.Add(new CustomerModel
-            //    {
-            //        CustomerId = int.Parse(node["Id"].InnerText),
-            //        Name = node["Name"].InnerText,
-            //        Country = node["Country"].InnerText
-            //    });
-            //}
-
-            //return View(customers);
-
-            //originalet
-            //return View();
         }
 
         public ActionResult About()
@@ -136,7 +81,48 @@ namespace Podcaster.Controllers
         {
             ViewBag.Message = "Your Podcast playing page.";
 
-            return View();
+            List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
+
+            foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel"))
+            {
+                var mainTitle = temp.SelectSingleNode("title");
+                var main = mainTitle.InnerText;
+
+                podEpisode.Add(new PodcastEpisodeModel
+                {
+                    Description = main
+                });
+
+            }
+            foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
+            {
+                var mainTitle = temp.SelectSingleNode("title");
+                var main = mainTitle.InnerText;
+
+                var mainPub = temp.SelectSingleNode("pubDate");
+                var PubDt = mainPub.InnerText;
+
+                var epiUrl = "";
+                var enclosure = temp.SelectSingleNode("enclosure");
+                if (enclosure != null) { epiUrl = enclosure.Attributes["url"].Value; }
+                var media = temp.SelectSingleNode("media");
+                if (media != null)
+                { epiUrl = media.Attributes["url"].Value; }
+
+                podEpisode.Add(new PodcastEpisodeModel
+                {
+                    episodeTitle = main,
+                    PublicationDate = PubDt,
+                    episodeUrl = epiUrl
+                });
+
+
+            }
+
+            return View(podEpisode);
         }
     }
 }
