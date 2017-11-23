@@ -17,50 +17,7 @@ namespace Podcaster.Controllers
     {
         public ActionResult Index()
        {
-
-            List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
-
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
-
-            foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel"))
-            {
-                var mainTitle = temp.SelectSingleNode("title");
-                var main = mainTitle.InnerText;
-
-                podEpisode.Add(new PodcastEpisodeModel
-                {
-                    Description = main                  
-                });
-
-            }
-            foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
-            {
-                var mainTitle = temp.SelectSingleNode("title");
-                var main = mainTitle.InnerText;
-
-                var mainPub = temp.SelectSingleNode("pubDate");
-                var PubDt = mainPub.InnerText;
-
-                var epiUrl = "";
-                var enclosure = temp.SelectSingleNode("enclosure");
-                if (enclosure != null) { epiUrl = enclosure.Attributes["url"].Value; }
-                var media = temp.SelectSingleNode("media");                
-                if (media != null)
-                { epiUrl = media.Attributes["url"].Value; }
-
-                    podEpisode.Add(new PodcastEpisodeModel
-                {             
-                    episodeTitle = main,
-                    PublicationDate = PubDt,
-                    episodeUrl = epiUrl
-                });
-
-
-            }
-
-            return View(podEpisode);
-
+            return View();
         }
 
         public ActionResult About()
@@ -112,11 +69,23 @@ namespace Podcaster.Controllers
                 if (media != null)
                 { epiUrl = media.Attributes["url"].Value; }
 
+                string desc = null;
+                var description = temp.SelectSingleNode("description");
+                if (description != null)
+                {
+                    desc = description.InnerText;
+                }
+                else
+                {
+                    desc = null;
+                }
+
                 podEpisode.Add(new PodcastEpisodeModel
                 {
                     episodeTitle = main,
                     PublicationDate = PubDt,
-                    episodeUrl = epiUrl
+                    episodeUrl = epiUrl,
+                    Description = desc
                 });
 
 

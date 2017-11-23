@@ -9,21 +9,28 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<div>
-          
-                <img id="imageJoe" src="https://tastelessgentlemen.com/wp-content/uploads/2015/11/joe-rogan-experience.png" alt="" height="250" width="250" />
-                <img id="imageRev" src="http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" alt="" height="250" width="250" />
-           
-            <br />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+        <div>
+
+            <img id="imageJoe" src="https://tastelessgentlemen.com/wp-content/uploads/2015/11/joe-rogan-experience.png" alt="" height="250" width="250" />
+            <img id="imageRev" src="http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" alt="" height="250" width="250" />
+
             <br />
             <br />
             @*<input id="rssTextSubmitJoe" type="submit" value="Joe" />*@
             <input id="rssText" type="text" />
 
-
             <br />
-    
- <h3 id="podName">Podnamn</h3>
+
+            <h3 id="podName">Podnamn</h3>
 
             <audio id="player" controls="controls">
                 @*<source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />*@
@@ -32,32 +39,31 @@
                 Your browser does not support the audio element.
             </audio>
 
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <th>Podcast</th>
-        </tr>
-        @foreach (PodcastEpisodeModel pod in Model)
-        {
-            <td><h2>@pod.Description</h2></td>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>Podcast</th>
+                </tr>
+                @foreach (PodcastEpisodeModel pod in Model)
+                {
+                    <td><h2>@pod.PodcastName</h2></td>
 
-            <tr>            
-                <td>@pod.episodeTitle</td>
-                <td>@pod.PublicationDate</td>
-                
-            </tr>
-        }
-    </table>
-
-
+                    <tr>
+                        <td>@pod.episodeTitle</td>
+                        <td>@pod.PublicationDate</td>
+                        <td>@pod.Description</td>
+                    </tr>
+                }
+            </table>
 
         </div>
+</body>
+</html>
 
-
-        <script>
+            <script>
             var rssValue = document.getElementById("rssText").value;
             var sport = "http://traffic.libsyn.com/revolutionspodcast/7.08-_The_Political_Question_Master.mp3?dest-id=159998";
             var joe = "http://traffic.libsyn.com/joeroganexp/p1040.mp3";
-            
+
             $("#imageRev").on("click", function () {
 
                 var audio = $("#player");
@@ -70,16 +76,16 @@
 
 
             $("#imageJoe").on("click", function () {
+                @*@Html.ActionLink("Home", "PlayingPage", "Home")*@
+
 
                 var audio = $("#player");
                 //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
                 $("#mp3_src").attr("src", joe);
-
                 audio[0].pause();
                 audio[0].load();//suspends and restores all audio element
-
                 audio[0].oncanplaythrough = audio[0].play();
             });
 
 
-        </script>
+            </script>

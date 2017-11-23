@@ -7,64 +7,19 @@ namespace Podcaster.Models
 {
     public class PodcastEpisodeModel
     {
-        private string EpisodeTitle;
-        private string EpisodeUrl;
-        private String publicationDate;
-        private string description;
-        //private Boolean viewStatus;
+
+        public string PodcastName {get; set;}
+
+        public string episodeTitle { get; set; }
+
+        public string episodeUrl { get; set; }
 
 
+        public string PublicationDate { get; set; }
 
-        public string episodeTitle
-        {
-            get
-            {
-                return EpisodeTitle;
-            }
 
-            set
-            {
-                EpisodeTitle = value;
-            }
-        }
-        public string episodeUrl
-        {
-            get
-            {
-                return EpisodeUrl;
-            }
+        public string Description { get; set; }
 
-            set
-            {
-                EpisodeUrl = value;
-            }
-        }
-
-        public string PublicationDate
-        {
-            get
-            {
-                return publicationDate;
-            }
-
-            set
-            {
-                publicationDate = value;
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-
-            set
-            {
-                description = value;
-            }
-        }
 
         //public bool ViewStatus
         //{
