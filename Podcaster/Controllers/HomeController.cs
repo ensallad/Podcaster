@@ -16,43 +16,80 @@ namespace Podcaster.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+       {
 
-            List<ValutaTest> podEpisode = new List<ValutaTest>();
+            List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
 
-            //Load the XML file in XmlDocument.
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load(Server.MapPath("http://freecodecamp.libsyn.com/rss"));
-
-
-
-
+            //fungerar
             //string uri = "http://freecodecamp.libsyn.com/rss";
 
 
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml");
-            foreach (XmlNode xmlNode in xmlDoc.DocumentElement.ChildNodes[2].ChildNodes[0].ChildNodes)
-            {
+            //XmlDocument xmlDoc = new XmlDocument();
+            //xmlDoc.Load("http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml");
+            //foreach (XmlNode xmlNode in xmlDoc.DocumentElement.ChildNodes[2].ChildNodes[0].ChildNodes)
+            //{
 
-                podEpisode.Add(new ValutaTest
+            //    podEpisode.Add(new ValutaTest
+            //    {
+            //        Currency = xmlNode.Attributes["currency"].Value,
+            //        Rate = xmlNode.Attributes["rate"].Value
+            //    });
+
+            //}
+            //slut på den fungerande
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
+            //foreach (XmlNode xmlNode in xmlDoc.DocumentElement.SelectNodes("channel/item"))
+            //{
+            //    //var mainTitle = xmlNode.SelectSingleNode("title");
+            //    podEpisode.Add(new PodcastEpisodeModel
+            //    {
+            //        //Description = xmlNode.Attributes["channel/title"].Value
+            //        //Description = xmlDoc.InnerXml
+            //      //Description = xmlNode.Attributes["description"].Value
+
+
+            //});
+            foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel"))
+            {
+                var mainTitle = temp.SelectSingleNode("title");
+                var main = mainTitle.InnerText;
+
+                podEpisode.Add(new PodcastEpisodeModel
                 {
-                    Currency = xmlNode.Attributes["currency"].Value,
-                    Rate = xmlNode.Attributes["rate"].Value
+                    //Description = xmlNode.Attributes["channel/title"].Value
+                    //Description = xmlDoc.InnerXml
+                    //Description = xmlNode.Attributes["description"].Value
+                    Description = main
+                  
                 });
-                
+
+
             }
 
+            foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
+            {
+                var mainTitle = temp.SelectSingleNode("title");
+                var main = mainTitle.InnerText;
 
-                return View(podEpisode);
+                var mainPub = temp.SelectSingleNode("pubDate");
+                var PubDt = mainTitle.InnerText;
+                podEpisode.Add(new PodcastEpisodeModel
+                {
+                    //Description = xmlNode.Attributes["channel/title"].Value
+                    //Description = xmlDoc.InnerXml
+                    //Description = xmlNode.Attributes["description"].Value
+
+                    episodeTitle = main,
+                    PublicationDate = PubDt
+                    
+                });
 
 
+            }
 
-
-
-
-
-
+            return View(podEpisode);
 
 
 
