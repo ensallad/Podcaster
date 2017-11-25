@@ -39,28 +39,26 @@ namespace Podcaster.Controllers
             ViewBag.Message = "Your Podcast playing page.";
 
             List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
-
+         
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
 
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel"))
             {
-                var mainTitle = temp.SelectSingleNode("title");
-                var main = mainTitle.InnerText;
+                var mainTitle = temp.SelectSingleNode("title").InnerText;
 
                 podEpisode.Add(new PodcastEpisodeModel
                 {
-                    Description = main
+                    Description = mainTitle
                 });
 
             }
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
             {
-                var mainTitle = temp.SelectSingleNode("title");
-                var main = mainTitle.InnerText;
+                var mainTitle = temp.SelectSingleNode("title").InnerText; ;
+                //var main = mainTitle.InnerText;
 
-                var mainPub = temp.SelectSingleNode("pubDate");
-                var PubDt = mainPub.InnerText;
+                var PubDt = temp.SelectSingleNode("pubDate").InnerText;
 
                 var epiUrl = "";
                 var enclosure = temp.SelectSingleNode("enclosure");
@@ -82,7 +80,7 @@ namespace Podcaster.Controllers
 
                 podEpisode.Add(new PodcastEpisodeModel
                 {
-                    episodeTitle = main,
+                    episodeTitle = mainTitle,
                     PublicationDate = PubDt,
                     episodeUrl = epiUrl,
                     Description = desc
@@ -90,8 +88,58 @@ namespace Podcaster.Controllers
 
 
             }
+            ViewBag.ListEpisode = podEpisode;
 
             return View(podEpisode);
         }
+
+
+        public ActionResult GetPodEpisodes()
+        {
+            //object model = null;
+
+            //var podName = "";
+
+            //if (viewName == "CustomerDetails")
+            //{
+            //    using (NorthwindEntities db = new NorthwindEntities())
+            //    {
+            //        model = db.Customers.Find(customerID);
+            //    }
+            //}
+            //if (viewName == "OrderDetails")
+            //{
+            //    using (NorthwindEntities db = new NorthwindEntities())
+            //    {
+            //        model = db.Orders.Where(o => o.CustomerID == customerID)
+            //                  .OrderBy(o => o.OrderID).ToList();
+            //    }
+            //}
+
+            //List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
+
+            //XmlDocument xmlDoc = new XmlDocument();
+            // xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
+
+            //var document = GetXDocFromPodcast();
+            //XElement SingleNode = (from c in xmlDoc.
+            //                       Descendants("Feed")
+            //                       where c.Element("feedName").Value == podname
+            //                       select c).FirstOrDefault();
+
+            //var mainTitle = xmlDoc.SelectSingleNode("title");
+            //var main = mainTitle.InnerText;
+            //podName = main;
+
+            //model = main;
+            //return PartialView("PlayingPage", podName);
+
+            return View("Index");
+        }
+
+
+
+
+
     }
 }

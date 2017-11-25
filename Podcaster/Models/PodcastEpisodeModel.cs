@@ -14,9 +14,7 @@ namespace Podcaster.Models
 
         public string episodeUrl { get; set; }
 
-
         public string PublicationDate { get; set; }
-
 
         public string Description { get; set; }
 

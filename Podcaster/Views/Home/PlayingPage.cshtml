@@ -40,47 +40,67 @@
             </audio>
 
             <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <th>Podcast</th>
-                </tr>
-                @foreach (PodcastEpisodeModel pod in Model)
+              
+                    @*<th><h3>Podcast information</h3></th>*@
+                    @*<th><h1>@ViewBag.ListEpisode</h1></th>*@
+                
+                @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
                 {
-                    <td><h2>@pod.PodcastName</h2></td>
+                      <tr>
+                   <th>@pod.PodcastName</th>
 
-                    <tr>
+                   
                         <td>@pod.episodeTitle</td>
-                        <td>@pod.PublicationDate</td>
+                        @*<td>@pod.PublicationDate</td>*@
                         <td>@pod.Description</td>
                     </tr>
                 }
             </table>
+            
+       
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>Leif</th>
+                </tr>              
+            </table>
+
+            <ul>
+                @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
+                {
+                    <li>@pod.episodeTitle</li>   
+                }
+            </ul>
+
+
+
+
 
         </div>
 </body>
 </html>
 
             <script>
-            var rssValue = document.getElementById("rssText").value;
-            var sport = "http://traffic.libsyn.com/revolutionspodcast/7.08-_The_Political_Question_Master.mp3?dest-id=159998";
-            var joe = "http://traffic.libsyn.com/joeroganexp/p1040.mp3";
+                var rssValue = document.getElementById("rssText").value;
+                var sport = "http://traffic.libsyn.com/revolutionspodcast/7.08-_The_Political_Question_Master.mp3?dest-id=159998";
+                var joe = "http://traffic.libsyn.com/joeroganexp/p1040.mp3";
 
-            $("#imageRev").on("click", function () {
+                $("#imageRev").on("click", function () {
 
+                    var audio = $("#player");
+                    //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
+                    $("#mp3_src").attr("src", sport);
+                    audio[0].pause();
+                    audio[0].load();//suspends and restores all audio element
+                    audio[0].oncanplaythrough = audio[0].play();
+                });
+
+
+                $("#imageJoe").on("click", function () {
+                    alert("joe");
+                @*@Html.Action("GetPodEpisodes");*@
+                    @*@{Html.RenderAction("GetPodEpisodes");}*@
                 var audio = $("#player");
-                //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
-                $("#mp3_src").attr("src", sport);
-                audio[0].pause();
-                audio[0].load();//suspends and restores all audio element
-                audio[0].oncanplaythrough = audio[0].play();
-            });
 
-
-            $("#imageJoe").on("click", function () {
-                @*@Html.ActionLink("Home", "PlayingPage", "Home")*@
-
-
-                var audio = $("#player");
-                //$("#ogg_src").attr("src", "C:\Users\johan\Desktop\Kodprojekt\Musik/629.ogg");
                 $("#mp3_src").attr("src", joe);
                 audio[0].pause();
                 audio[0].load();//suspends and restores all audio element
