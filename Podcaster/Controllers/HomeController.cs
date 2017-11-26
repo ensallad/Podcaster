@@ -155,8 +155,8 @@ namespace Podcaster.Controllers
             ViewBag.ListEpisode = podCast;
 
             //get the latest episodeUrl to the player in playingpage
-            var firstItem = podCast[0]; 
-            var firstUrl = firstItem.PublicationDate;
+            var firstItem = podCast[1]; 
+            var firstUrl = firstItem.episodeUrl;
 
             ViewBag.LatestUrl = firstUrl;
 
