@@ -95,9 +95,10 @@ namespace Podcaster.Controllers
 
 
 
-        public ActionResult PlayingPage(string rssFeed)
+        public ActionResult PlayingPage(string rssFeed, string episodeName)
         {
-            string PodcastName = "felfelfel";
+            string PodcastName = "";
+            string admittedEpisode = "";
 
             List<PodcastEpisodeModel> podCast = new List<PodcastEpisodeModel>();
 
@@ -108,15 +109,15 @@ namespace Podcaster.Controllers
                 var mainTitle = temp.SelectSingleNode("title").InnerText;
 
                 PodcastName = mainTitle;
+                if (PodcastName != "") { 
                 podCast.Add(new PodcastEpisodeModel
-                {
+                {                 
                     Description = mainTitle
-
                 });
-
             }
+        }
             ViewBag.PodcastName = PodcastName;
-
+            ViewBag.rss = rssFeed;
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
             {
                 var mainTitle = temp.SelectSingleNode("title").InnerText; ;
@@ -142,26 +143,56 @@ namespace Podcaster.Controllers
                     desc = null;
                 }
 
-                podCast.Add(new PodcastEpisodeModel
+
+                //test med att byta epsiode via controllern
+                //var nextEpiUrl = epiUrl;
+                //if (episodeName != null)
+                //{ admittedEpisode = epiUrl; }
+                   
+
+
+                if (mainTitle!=null && PubDt != null) {
+
+                    podCast.Add(new PodcastEpisodeModel
                 {
                     episodeTitle = mainTitle,
                     PublicationDate = PubDt,
                     episodeUrl = epiUrl,
                     Description = desc
                 });
-
-
             }
+
+        }
+
+            if(episodeName!= null) {
+                foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
+                {
+                    if (episodeName == temp.SelectSingleNode("title").InnerText)
+                    {
+                        var enclosure = temp.SelectSingleNode("enclosure");
+                        if (enclosure != null) { admittedEpisode = enclosure.Attributes["url"].Value; }
+                        var media = temp.SelectSingleNode("media");
+                        if (media != null)
+                        { admittedEpisode = media.Attributes["url"].Value; }
+                    }
+                }
+            }
+
             ViewBag.ListEpisode = podCast;
 
             //get the latest episodeUrl to the player in playingpage
             var firstItem = podCast[1]; 
             var firstUrl = firstItem.episodeUrl;
 
-            ViewBag.LatestUrl = firstUrl;
+            //ViewBag.LatestUrl = firstUrl;
+            ViewBag.choosenEpisodeUrl = firstUrl;
+            if (admittedEpisode != "")
+            { ViewBag.choosenEpisodeUrl = admittedEpisode; }
+
 
             return View(podCast);
         }
+
 
 
         public ActionResult GetPodEpisodes(string podRss)

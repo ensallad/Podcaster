@@ -19,6 +19,9 @@
 <body>
 
     <div>
+        <button type="button" id="rickySirius">
+            <img alt="" src="http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" height="250" width="250" />
+        </button>
         <button type="button" id="billBurr">
             <img alt="" src="http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" height="250" width="250" />
         </button>
@@ -32,7 +35,7 @@
             <img alt="" src="http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg" height="250" width="250" />
         </button>
         <button type="button" id="revolutions">
-            <img alt="" src="http://static.libsyn.com/p/assets/3/4/5/f/345fbd6a253649c0/RevolutionsLogo_V2.jpg" height="250" width="250" />
+            <img alt="" src="http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" height="250" width="250" />
         </button>
         <button type="button" id="jre">
             <img alt="" src="http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" height="250" width="250" />
@@ -81,6 +84,7 @@
             @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
             {
                 <li>@pod.episodeTitle</li>
+                
             }
         </ul>
 
@@ -93,8 +97,10 @@
 </html>
 
 <script>
-                var rssValue = document.getElementById("rssText").value;
-
+                //var rssValue = document.getElementById("rssText").value;
+     $("#rickySirius").on("click", function () {
+                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss" })';
+                });
     $("#billBurr").on("click", function () {
                     window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://billburr.libsyn.com/rss" })';
                 });
