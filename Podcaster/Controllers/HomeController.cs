@@ -144,13 +144,6 @@ namespace Podcaster.Controllers
                 }
 
 
-                //test med att byta epsiode via controllern
-                //var nextEpiUrl = epiUrl;
-                //if (episodeName != null)
-                //{ admittedEpisode = epiUrl; }
-                   
-
-
                 if (mainTitle!=null && PubDt != null) {
 
                     podCast.Add(new PodcastEpisodeModel
@@ -164,6 +157,8 @@ namespace Podcaster.Controllers
 
         }
 
+
+            //var choosenEpisodeTitleName = episodeName;
             if(episodeName!= null) {
                 foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
                 {
@@ -183,11 +178,15 @@ namespace Podcaster.Controllers
             //get the latest episodeUrl to the player in playingpage
             var firstItem = podCast[1]; 
             var firstUrl = firstItem.episodeUrl;
+            var firstEpisodeTitle = firstItem.episodeTitle;
 
             //ViewBag.LatestUrl = firstUrl;
             ViewBag.choosenEpisodeUrl = firstUrl;
+            ViewBag.choosenEpisodeTitle = firstEpisodeTitle;
             if (admittedEpisode != "")
-            { ViewBag.choosenEpisodeUrl = admittedEpisode; }
+            { ViewBag.choosenEpisodeUrl = admittedEpisode;
+               ViewBag.choosenEpisodeTitle = episodeName;
+            }
 
 
             return View(podCast);
