@@ -6,7 +6,7 @@
 }
 
 <h2>PlayingPage</h2>
-<h3>@ViewBag.PodcastName</h3>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!DOCTYPE html>
@@ -99,22 +99,22 @@
 <script>
                 //var rssValue = document.getElementById("rssText").value;
      $("#rickySirius").on("click", function () {
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" }))';
                 });
     $("#billBurr").on("click", function () {
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://billburr.libsyn.com/rss" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://billburr.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" }))';
                 });
     $("#freeCodeCamp").on("click", function () {
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://freecodecamp.libsyn.com/rss" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://freecodecamp.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" }))';
                 });
 
                 $("#wakingUpPodcast").on("click", function () {
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://wakingup.libsyn.com/rss" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://wakingup.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" }))';
 
                 });
 
                  $("#hardcoreHistory").on("click", function () {
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://www.dancarlin.com/dchh-feedburner.xml" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://www.dancarlin.com/dchh-feedburner.xml",imgUrl = "http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg" }))';
                 });
 
                 $("#revolutions").on("click", function () {
@@ -124,13 +124,13 @@
                     //audio[0].pause();
                     //audio[0].load();//suspends and restores all audio element
                     //audio[0].oncanplaythrough = audio[0].play();
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://revolutionspodcast.libsyn.com/rss" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://revolutionspodcast.libsyn.com/rss",imgUrl = "http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" }))';
 
                 });
 
 
                 $("#jre").on("click", function () {
-                     window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://joeroganexp.joerogan.libsynpro.com/rss" })';
+                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://joeroganexp.joerogan.libsynpro.com/rss",imgUrl = "http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" }))';
 
                 @*@Html.Action("GetPodEpisodes");*@
                     @*@{Html.RenderAction("GetPodEpisodes");}*@
@@ -139,7 +139,7 @@
 
                 $("#philosophizeThis").on("click", function () {
                     //$.post("Home/Index");
-                    window.location.href='@Url.Action("PlayingPage","Home",new { rssFeed = "http://philosophizethis.libsyn.com/rss" })';
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://philosophizethis.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/1/d/9/4/1d946f34af4d1ee6/logo1.jpg" }))';
                     //window.location = "/Home/Index";
 
                 });

@@ -8,6 +8,7 @@
 @*<h2>PlayingPage</h2>*@
 <h3>@ViewBag.PodcastName</h3>
 <h3>@ViewBag.choosenEpisodeTitle</h3>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!DOCTYPE html>
@@ -19,7 +20,9 @@
 </head>
 <body>
 
-    <div>
+    <img id="episodeImage" style="height:350px; width:350px;" src="@ViewBag.newImageUrl" alt="imageError">
+
+    <div id="audioPlayer">
 
         <audio id="player" controls="controls">
             @*<source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />*@
@@ -51,7 +54,8 @@
                 var seeIfEmpty = item.episodeTitle;
                 if (seeIfEmpty != null)
                 { name = seeIfEmpty; }
-                    <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, episodeName = name }, null)</li>     
+                    <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, null)</li>     
+
             }
         </ul>
     </div>
@@ -69,7 +73,7 @@
         </div>*@
     
 
-    <table id="tableId" cellpadding="0" cellspacing="0" border="1">
+    @*<table id="tableId" cellpadding="0" cellspacing="0" border="1">
 
       
         @foreach (PodcastEpisodeModel item in Model)
@@ -87,7 +91,7 @@
                 <td>@item.PublicationDate</td>
             </tr>
         }
-    </table>
+    </table>*@
 
 
     @*<li>@Html.ActionLink(pod.episodeTitle, "Index", "Home")</li>*@
@@ -103,7 +107,9 @@
             }
         </ul>
     </div>*@
-    
+    <footer>
+       
+    </footer>
 
 
 </body>

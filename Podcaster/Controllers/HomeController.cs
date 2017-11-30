@@ -95,7 +95,7 @@ namespace Podcaster.Controllers
 
 
 
-        public ActionResult PlayingPage(string rssFeed, string episodeName)
+        public ActionResult PlayingPage(string rssFeed,string imgUrl, string episodeName)
         {
             string PodcastName = "";
             string admittedEpisode = "";
@@ -184,13 +184,19 @@ namespace Podcaster.Controllers
                 }
             }
 
-
+            
+            var imageUrl = "lars";
+            if(imgUrl != null)
+            { imageUrl = imgUrl; }
+            
             //get the latest episode information to the player in playingpage
             var firstItem = podCast[1]; 
             var firstUrl = firstItem.episodeUrl;
             var firstEpisodeTitle = firstItem.episodeTitle;
             var firstEpisodeDescription = firstItem.Description;
+  
 
+            ViewBag.newImageUrl = imageUrl;
 
             ViewBag.ListEpisode = podCast;
             ViewBag.choosenEpisodeUrl = firstUrl;
