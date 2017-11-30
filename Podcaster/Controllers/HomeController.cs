@@ -158,8 +158,9 @@ namespace Podcaster.Controllers
         }
 
 
-            //var choosenEpisodeTitleName = episodeName;
-            if(episodeName!= null) {
+            //get the information for the selected podcast episode
+            var newEpisodeDescription = "";
+            if (episodeName!= null) {
                 foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
                 {
                     if (episodeName == temp.SelectSingleNode("title").InnerText)
@@ -169,23 +170,36 @@ namespace Podcaster.Controllers
                         var media = temp.SelectSingleNode("media");
                         if (media != null)
                         { admittedEpisode = media.Attributes["url"].Value; }
+
+                        var description = temp.SelectSingleNode("description");
+                        if (description != null)
+                        {
+                            newEpisodeDescription = description.InnerText;
+                        }
+                        else
+                        {
+                            newEpisodeDescription = "";
+                        }
                     }
                 }
             }
 
-            ViewBag.ListEpisode = podCast;
 
-            //get the latest episodeUrl to the player in playingpage
+            //get the latest episode information to the player in playingpage
             var firstItem = podCast[1]; 
             var firstUrl = firstItem.episodeUrl;
             var firstEpisodeTitle = firstItem.episodeTitle;
+            var firstEpisodeDescription = firstItem.Description;
 
-            //ViewBag.LatestUrl = firstUrl;
+
+            ViewBag.ListEpisode = podCast;
             ViewBag.choosenEpisodeUrl = firstUrl;
             ViewBag.choosenEpisodeTitle = firstEpisodeTitle;
+            ViewBag.choosenEpisodeDescription = firstEpisodeDescription;
             if (admittedEpisode != "")
             { ViewBag.choosenEpisodeUrl = admittedEpisode;
                ViewBag.choosenEpisodeTitle = episodeName;
+               ViewBag.choosenEpisodeDescription = newEpisodeDescription; 
             }
 
 
