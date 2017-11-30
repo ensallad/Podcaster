@@ -7,7 +7,7 @@
 
 @*<h2>PlayingPage</h2>*@
 <h3>@ViewBag.PodcastName</h3>
-<h3>@ViewBag.choosenEpisodeTitle</h3>
+<h4>@ViewBag.choosenEpisodeTitle</h4>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -35,16 +35,8 @@
 
     <div id="descriptionDiv" style =" height:100px; width:800px; overflow-y: auto; overflow-x:hidden; ">@ViewBag.choosenEpisodeDescription</div>
 
-        @*@Html.DropDownList("Direction", new List<SelectListItem>
-{
-  new SelectListItem{ Text = "Home To School", Value = "0" },
-  new SelectListItem{ Text = "School To Home", Value = "1" }
-}, new { onchange = "getAlldata()" })*@
-              
-        @*onclick="location.href='@Url.Action("Index", "Home")'"*@
-
   
-    <div id="listOfEpisodesDive">
+    <div id="listOfEpisodesDive" style="height:700px; width:500px; overflow-y: auto;">
        
         <ul>
             @foreach (PodcastEpisodeModel item in Model)
@@ -62,15 +54,18 @@
 
 
 
-    @*<div id="listOfEpisodesDiv">
-            <ul>
-                @foreach (PodcastEpisodeModel item in Model)
-                {
-                    <li >Play episode @item.episodeTitle </li>
-                    <li id="listItemTitle">@item.episodeUrl  @item.episodeTitle</li>
-                }
-            </ul>
-        </div>*@
+
+
+
+
+    @*@Html.DropDownList("Direction", new List<SelectListItem>
+        {
+          new SelectListItem{ Text = "Home To School", Value = "0" },
+          new SelectListItem{ Text = "School To Home", Value = "1" }
+        }, new { onchange = "getAlldata()" })*@
+
+    @*onclick="location.href='@Url.Action("Index", "Home")'"*@
+
     
 
     @*<table id="tableId" cellpadding="0" cellspacing="0" border="1">

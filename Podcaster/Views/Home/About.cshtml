@@ -5,7 +5,7 @@
     ViewBag.Title = "About";
 }
 
-<h2>PlayingPage</h2>
+<h2>  Podcasts</h2>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -18,8 +18,11 @@
 </head>
 <body>
 
-    <div>
-        <button type="button" id="rickySirius">
+    <div id="podcastButtonDiv" style =" height:515px; width:1400px; overflow-x: auto; overflow-x:hidden; background-color:gainsboro ">
+        <button type="button" id="stuffYouShouldKnow">
+            <img alt="" src="https://podcasts.howstuffworks.com/hsw/podcasts/sysk/sysk-audio-1600.jpg" height="250" width="250" />
+        </button>
+        <button type="button" id="rickySirius" >
             <img alt="" src="http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" height="250" width="250" />
         </button>
         <button type="button" id="billBurr">
@@ -39,47 +42,24 @@
         </button>
         <button type="button" id="jre">
             <img alt="" src="http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" height="250" width="250" />
-        </button>
-        @*för att lägga kod till kontroller under knapp och liknande   onclick="location.href='@Url.Action("Index", "Home")'"  *@
+        </button>     
         <button type="button" id="philosophizeThis">
             <img alt="" src="http://static.libsyn.com/p/assets/1/d/9/4/1d946f34af4d1ee6/logo1.jpg" height="250" width="250" />
         </button>
 
-        <br />
-        <br />
-        @*<input id="rssTextSubmitJoe" type="submit" value="Joe" />*@
-        <input id="rssText" type="text" />
+        @*för att lägga kod till kontroller under knapp och liknande   onclick="location.href='@Url.Action("Index", "Home")'"  *@
+    </div>
 
-        <br />
+        @*<h3 id="podName">Podnamn</h3>*@
 
-        <h3 id="podName">Podnamn</h3>
-
-        <audio id="player" controls="controls">
-            @*<source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />*@
+        @*<audio id="player" controls="controls">
+          
             <source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />
             <source id="mp3_src" src="https://media.acast.com/sportbladetsplp/avsnitt168-vagenframat/media.mp3" type="audio/mp3" />
             Your browser does not support the audio element.
-        </audio>
-        <br />
-        <br />
-        <table cellpadding="0" cellspacing="0" border="1">
-
-            @*<th><h3>Podcast information</h3></th>*@
-            @*<tr>
-                    <th><b>@ViewBag.PodcastName</b></th>
-                </tr>*@
-            @foreach (PodcastEpisodeModel item in Model)
-            {
-                <tr>
-                    @*<th><b>@item.PodcastName</b></th>*@
-
-                    <td>@item.episodeTitle</td>
-                    <td>@item.PublicationDate</td>
-                    @*<td>@item.Description</td>*@
-                </tr>
-            }
-        </table>
-
+        </audio>*@
+       <br />
+    <h3>Popular right now</h3>
         <ul>
             @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
             {
@@ -89,7 +69,7 @@
         </ul>
 
 
-    </div>
+ 
 
 
 
@@ -98,6 +78,9 @@
 
 <script>
                 //var rssValue = document.getElementById("rssText").value;
+    $("#stuffYouShouldKnow").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "https://www.howstuffworks.com/podcasts/stuff-you-should-know.rss", imgUrl = "https://podcasts.howstuffworks.com/hsw/podcasts/sysk/sysk-audio-1600.jpg" }))';
+                });
      $("#rickySirius").on("click", function () {
                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" }))';
                 });

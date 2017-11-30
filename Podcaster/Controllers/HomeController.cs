@@ -30,7 +30,7 @@ namespace Podcaster.Controllers
             List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
 
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("http://deadlysiriussxm.libsyn.com/rss");
+            xmlDoc.Load("https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/10/explicit.rss");
 
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel"))
             {
