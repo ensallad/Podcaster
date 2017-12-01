@@ -16,46 +16,48 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <title>Index</title>
 </head>
 <body>
+    <div id="episodeInfomationDiv">
+        <div id="episodeImageDiv">
+            <img id="episodeImage" style="height:350px; width:350px;" src="@ViewBag.newImageUrl" alt="imageError">
+        </div>
 
-    <img id="episodeImage" style="height:350px; width:350px;" src="@ViewBag.newImageUrl" alt="imageError">
 
-    <div id="audioPlayer">
-
-        <audio id="player" controls="controls">
-            @*<source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />*@
-            <source id="ogg_src" src="@ViewBag.choosenEpisodeUrl" type="audio/ogg" />
-            <source id="mp3_src" src="@ViewBag.choosenEpisodeUrl" type="audio/mp3" />
-            Your browser does not support the audio element.
-        </audio>
-
-    </div>
-
-    <div id="descriptionDiv" style =" height:100px; width:800px; overflow-y: auto; overflow-x:hidden; ">@ViewBag.choosenEpisodeDescription</div>
-
-  
-    <div id="listOfEpisodesDive" style="height:700px; width:500px; overflow-y: auto;">
-       
-        <ul>
-            @foreach (PodcastEpisodeModel item in Model)
+        <div id="listOfEpisodesDive">         
+            <ul id="ulOfEpisodes">
+                @foreach (PodcastEpisodeModel item in Model)
             {
                 var name = "Null";
 
                 var seeIfEmpty = item.episodeTitle;
                 if (seeIfEmpty != null)
-                { name = seeIfEmpty; }
-                    <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, null)</li>     
+                { name = seeIfEmpty; }              
+                <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, new { style = "color: black;" }); </li>
+                }
+            </ul>
+        </div>
 
-            }
-        </ul>
+        <div id="descriptionDiv" style=" height:100px; width:800px; overflow-y: auto; overflow-x:hidden; ">
+            @ViewBag.choosenEpisodeDescription    
+        </div>
+
+        <div id="audioPlayer">
+
+            <audio id="player" controls="controls">
+                @*<source id="ogg_src" src="C:\Users\johan\Desktop\Kodprojekt\Musik/TreMusketorerna.ogg" type="audio/ogg" />*@
+                <source id="ogg_src" src="@ViewBag.choosenEpisodeUrl" type="audio/ogg" />
+                <source id="mp3_src" src="@ViewBag.choosenEpisodeUrl" type="audio/mp3" />
+                Your browser does not support the audio element.
+            </audio>
+
+        </div>
+
     </div>
 
-
-
-
-
+ 
 
 
     @*@Html.DropDownList("Direction", new List<SelectListItem>
@@ -102,9 +104,7 @@
             }
         </ul>
     </div>*@
-    <footer>
-       
-    </footer>
+   
 
 
 </body>
