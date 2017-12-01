@@ -5,7 +5,7 @@
     ViewBag.Title = "About";
 }
 
-<h2>  Podcasts</h2>
+@*<h2>  Podcasts</h2>*@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -18,39 +18,89 @@
     <title>Index</title>  
 </head>
 <body>
+    <br />
+    <div id="startContentDiv">
+        <div id="popularPodcastsDiv">
+            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+            <ul id="ulListPopularPodcasts">
+                @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
+            {
+                    <li id="popularEpisodeLi">@pod.episodeTitle</li>
+                }
+            </ul>
+        </div>
 
-    <div id="podcastButtonDiv" >
-        <button type="button" id="stuffYouShouldKnow">
-            <img alt="" src="https://podcasts.howstuffworks.com/hsw/podcasts/sysk/sysk-audio-1600.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="rickySirius" >
-            <img alt="" src="http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="billBurr">
-            <img alt="" src="http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="freeCodeCamp">
-            <img alt="" src="http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="wakingUpPodcast">
-            <img alt="" src="http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="hardcoreHistory">
-            <img alt="" src="http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="revolutions">
-            <img alt="" src="http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" height="250" width="250" />
-        </button>
-        <button type="button" id="jre">
-            <img alt="" src="http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" height="250" width="250" />
-        </button>     
-        <button type="button" id="philosophizeThis">
-            <img alt="" src="http://static.libsyn.com/p/assets/1/d/9/4/1d946f34af4d1ee6/logo1.jpg" height="250" width="250" />
-        </button>
+        <div id="podcastButtonDiv">
 
-        @*för att lägga kod till kontroller under knapp och liknande   onclick="location.href='@Url.Action("Index", "Home")'"  *@
+            <div class="podCastImagDiv">
+                <button type="button" id="thisAmericanLife">
+                    <img alt="" class="podCastImage" src="https://pbs.twimg.com/profile_images/459379225569423360/kF4Q-FsF_400x400.jpeg" />
+                </button>
+            </div>          
+            <div class="podCastImagDiv">
+                <button type="button" id="commonSense">
+                    <img alt="" class="podCastImage" src="http://www.dancarlin.com/graphics/CS_DC_iTunes.jpg" />
+                </button>
+            </div>           
+            <div class="podCastImagDiv">
+                <button type="button" id="cults">
+                    <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/96/30/f0/f9/9630f0f9-d026-4eca-8270-32cdd50a5332/03702711c47585433a6269089d3a76ab57be814d5cbaf1430e53c4e9de812fb2ddc11a7cb7de02f851e2f9db8dd9249987f487cfc3bd05c7ede6bd571af40d79.jpeg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="podSaveAmerica">
+                    <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/0d/28/33/81/0d283381-724c-4caa-abad-b470e950d72d/9fe8d62a052c05af026cccbc86ce1073e04f363fcc7c5fda6ce7b40c5ac23fad0bc8595632402b605e0683e40a6726f8cd25a9ee88ca38a3b1ac33b108a7c5c2.jpeg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="stuffYouShouldKnow">
+                    <img alt="" class="podCastImage" src="https://podcasts.howstuffworks.com/hsw/podcasts/sysk/sysk-audio-1600.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="rickySirius">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="billBurr">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="freeCodeCamp">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="wakingUpPodcast">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="hardcoreHistory">
+                    <img alt="" class="podCastImage" src="http://www.dancarlin.com/graphics/DC_HH_iTunes.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="revolutions">
+                    <img alt="" class="podCastImage" src="http://is1.mzstatic.com/image/thumb/Music/v4/b0/93/7b/b0937bb1-351e-1791-5746-9df1e49b929d/source/600x600bb.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="jre">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="philosophizeThis">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/d/9/4/1d946f34af4d1ee6/logo1.jpg" />
+                </button>
+            </div>
+
+            @*för att lägga kod till kontroller under knapp och liknande   onclick="location.href='@Url.Action("Index", "Home")'"  *@
+        </div>
     </div>
-
         @*<h3 id="podName">Podnamn</h3>*@
 
         @*<audio id="player" controls="controls">
@@ -60,18 +110,9 @@
             Your browser does not support the audio element.
         </audio>*@
        <br />
-    <h3>Popular right now</h3>
-        <ul>
-            @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
-            {
-                <li>@pod.episodeTitle</li>
-                
-            }
-        </ul>
-
+  
 
  
-
 
 
 </body>
@@ -79,6 +120,18 @@
 
 <script>
                 //var rssValue = document.getElementById("rssText").value;
+     $("#thisAmericanLife").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feed.thisamericanlife.org/talpodcast", imgUrl = "https://pbs.twimg.com/profile_images/459379225569423360/kF4Q-FsF_400x400.jpeg" }))';
+                });
+    $("#commonSense").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feeds.feedburner.com/dancarlin/commonsense?format=xml", imgUrl = "http://www.dancarlin.com/graphics/CS_DC_iTunes.jpg" }))';
+                });
+      $("#cults").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "https://rss.art19.com/cults", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/96/30/f0/f9/9630f0f9-d026-4eca-8270-32cdd50a5332/03702711c47585433a6269089d3a76ab57be814d5cbaf1430e53c4e9de812fb2ddc11a7cb7de02f851e2f9db8dd9249987f487cfc3bd05c7ede6bd571af40d79.jpeg" }))';
+                });
+     $("#podSaveAmerica").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feeds.feedburner.com/pod-save-america", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/0d/28/33/81/0d283381-724c-4caa-abad-b470e950d72d/9fe8d62a052c05af026cccbc86ce1073e04f363fcc7c5fda6ce7b40c5ac23fad0bc8595632402b605e0683e40a6726f8cd25a9ee88ca38a3b1ac33b108a7c5c2.jpeg" }))';
+                });
     $("#stuffYouShouldKnow").on("click", function () {
                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "https://www.howstuffworks.com/podcasts/stuff-you-should-know.rss", imgUrl = "https://podcasts.howstuffworks.com/hsw/podcasts/sysk/sysk-audio-1600.jpg" }))';
                 });
