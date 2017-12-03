@@ -73,7 +73,7 @@ namespace Podcaster.Controllers
 
             }
             //ViewBag.ListEpisode = podEpisode;
-
+            podEpisode.RemoveAt(0);
             return View(podEpisode);
         }
 
@@ -177,13 +177,14 @@ namespace Podcaster.Controllers
                 }
             }
 
-            
+            podCast.RemoveAt(0);
+
             var imageUrl = "lars";
             if(imgUrl != null)
             { imageUrl = imgUrl; }
             
             //get the latest episode information to the player in playingpage
-            var firstItem = podCast[1]; 
+            var firstItem = podCast[0]; 
             var firstUrl = firstItem.episodeUrl;
             var firstEpisodeTitle = firstItem.episodeTitle;
             var firstEpisodeDescription = firstItem.Description;

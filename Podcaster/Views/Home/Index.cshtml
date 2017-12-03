@@ -22,12 +22,12 @@
     <div id="startContentDiv">
         <div id="popularPodcastsDiv">
             <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
-            <ul id="ulListPopularPodcasts">
+            <ol id="ulListPopularPodcasts">
                 @foreach (PodcastEpisodeModel item in Model)
             {
                     <li id="popularEpisodeLi">@item.episodeTitle</li>
                 }
-            </ul>
+            </ol>
         </div>
 
         <div id="podCastImagDiv">
