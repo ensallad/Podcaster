@@ -41,7 +41,7 @@ textarea {
     width: 10%;
     height: 10%;
     white-space: pre-line;
-    left: 0%;
+    left: 0%;    
     
 }
 
@@ -59,11 +59,12 @@ textarea {
     position: relative;
     margin-top: -10%;
     white-space: pre-line;
-} 
+}
 #popularRightNowHeaderText {
     color: black;
     font-size: 100%;
     white-space: pre-line;
+    margin-top: 20%;
 }
 
 #podcastButtonDiv {
@@ -75,7 +76,6 @@ textarea {
     float: left;
     left: 2%;
     margin-top: 0%;
-    
 }
 .podCastImage {
     float:left;
@@ -136,3 +136,28 @@ textarea {
     top: 60px;
 }
 
+#listOfEpisodeHeader{
+    position:relative;
+    float:left;
+    left:6%;
+    margin-top: 0%;
+}
+
+#ulOfEpisodes{
+    position:relative;
+    margin-top:6%;
+}
+
+.podCastButton {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    cursor:pointer;
+}
+    .podCastButton:hover {
+        background-color: #BDBDBD
+    }
+
+    .podCastButton:active {
+        background-color: #BDBDBD;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
