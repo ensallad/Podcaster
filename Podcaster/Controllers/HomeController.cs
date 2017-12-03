@@ -18,14 +18,7 @@ namespace Podcaster.Controllers
        
         public ActionResult Index()
        {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your Podcast playing page.";
-
-            string PodcastName = "felfelfel";
+            string PodcastName;
 
             List<PodcastEpisodeModel> podEpisode = new List<PodcastEpisodeModel>();
 
@@ -39,17 +32,15 @@ namespace Podcaster.Controllers
                 PodcastName = mainTitle;
                 podEpisode.Add(new PodcastEpisodeModel
                 {
-                    Description = mainTitle
-
+                    //Description = mainTitle
+                    PodcastName = mainTitle
                 });
 
             }
-            ViewBag.PodcastName = PodcastName;
-
+            //ViewBag.PodcastName = PodcastName;
             foreach (System.Xml.XmlNode temp in xmlDoc.DocumentElement.SelectNodes("channel/item"))
             {
                 var mainTitle = temp.SelectSingleNode("title").InnerText; ;
-                //var main = mainTitle.InnerText;
 
                 var PubDt = temp.SelectSingleNode("pubDate").InnerText;
 
@@ -81,10 +72,11 @@ namespace Podcaster.Controllers
 
 
             }
-            ViewBag.ListEpisode = podEpisode;
+            //ViewBag.ListEpisode = podEpisode;
 
             return View(podEpisode);
         }
+
 
         public ActionResult Contact()
         {
@@ -111,8 +103,9 @@ namespace Podcaster.Controllers
                 PodcastName = mainTitle;
                 if (PodcastName != "") { 
                 podCast.Add(new PodcastEpisodeModel
-                {                 
-                    Description = mainTitle
+                {
+                    //Description = mainTitle
+                    PodcastName = mainTitle
                 });
             }
         }
