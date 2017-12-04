@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Technology";
+}
+
+<h2>Technology</h2>
+
+@using Podcaster.Models
+@model IEnumerable<PodcastEpisodeModel>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <div id="startContentDiv">
+        @*<div id="popularPodcastsDiv">
+            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+            <ol id="ulListPopularPodcasts">
+                @foreach (PodcastEpisodeModel item in Model)
+            {
+                    <li id="popularEpisodeLi">@item.episodeTitle</li>
+                }
+            </ol>
+        </div>*@
+
+        <div id="podCastImagDiv">
+
+         
+            <div class="podCastImagDiv">
+                <button type="button" id="freeCodeCamp" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" />
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    $("#freeCodeCamp").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://freecodecamp.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" }))';
+    });
+
+
+
+</script>

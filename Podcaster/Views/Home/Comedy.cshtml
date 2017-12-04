@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Comedy";
+}
+
+<h2>Comedy</h2>
+
+@using Podcaster.Models
+@model IEnumerable<PodcastEpisodeModel>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <div id="startContentDiv">
+        @*<div id="popularPodcastsDiv">
+            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+            <ol id="ulListPopularPodcasts">
+                @foreach (PodcastEpisodeModel item in Model)
+            {
+                    <li id="popularEpisodeLi">@item.episodeTitle</li>
+                }
+            </ol>
+        </div>*@
+
+        <div id="podCastImagDiv">
+
+      
+            <div class="podCastImagDiv">
+                <button type="button" id="theNerdist" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/3/c/4/5/3c45b257669e76d7/nerdistlogo.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="rickySirius" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="billBurr" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="jre" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+     $("#theNerdist").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://nerdist.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/3/c/4/5/3c45b257669e76d7/nerdistlogo.jpg" }))';
+                });
+     $("#rickySirius").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" }))';
+                });
+    $("#billBurr").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://billburr.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" }))';
+                });
+    $("#jre").on("click", function () {
+                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://joeroganexp.joerogan.libsynpro.com/rss",imgUrl = "http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" }))';
+    });
+
+</script>

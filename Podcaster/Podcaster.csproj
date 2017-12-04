@@ -262,6 +262,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\PlayingPage.cshtml" />
+    <Content Include="Views\Home\Comedy.cshtml" />
+    <Content Include="Views\Home\Education.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Science.cshtml" />
+    <Content Include="Views\Home\Society.cshtml" />
+    <Content Include="Views\Home\Technology.cshtml" />
+    <Content Include="Views\Home\Tv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

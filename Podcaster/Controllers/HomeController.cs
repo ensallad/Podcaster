@@ -207,18 +207,42 @@ namespace Podcaster.Controllers
         }
 
 
-
-        public ActionResult GetPodEpisodes(string podRss)
+        //return PartialView("podResults", podEpisodeTitle);
+        public ActionResult Comedy()
         {
 
             return View();
-
-            //return PartialView("podResults", podEpisodeTitle);
         }
 
+        public ActionResult Education()
+        {
+            return View();
+        }
 
+        public ActionResult News()
+        {
+            return View();
+        }
 
+        public ActionResult Science()
+        {
+            return View();
+        }
 
+        public ActionResult Society()
+        {
+            return View();
+        }
+
+        public ActionResult Technology()
+        {
+            return View();
+        }
+
+        public ActionResult Tv()
+        {
+            return View();
+        }
 
     }
 }

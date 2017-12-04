@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Science";
+}
+
+<h2>Science & Medicine</h2>
+
+@using Podcaster.Models
+@model IEnumerable<PodcastEpisodeModel>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <div id="startContentDiv">
+        @*<div id="popularPodcastsDiv">
+            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+            <ol id="ulListPopularPodcasts">
+                @foreach (PodcastEpisodeModel item in Model)
+            {
+                    <li id="popularEpisodeLi">@item.episodeTitle</li>
+                }
+            </ol>
+        </div>*@
+
+        <div id="podCastImagDiv">
+
+     
+            <div class="podCastImagDiv">
+                <button type="button" id="wakingUpPodcast" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" />
+                </button>
+            </div>
+         
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    $("#wakingUpPodcast").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://wakingup.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" }))';
+    });
+   
+
+</script>

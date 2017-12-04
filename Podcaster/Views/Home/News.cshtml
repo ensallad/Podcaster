@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "News";
+}
+
+<h2>News & Politics</h2>
+
+@using Podcaster.Models
+@model IEnumerable<PodcastEpisodeModel>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <div id="startContentDiv">
+        @*<div id="popularPodcastsDiv">
+            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+            <ol id="ulListPopularPodcasts">
+                @foreach (PodcastEpisodeModel item in Model)
+            {
+                    <li id="popularEpisodeLi">@item.episodeTitle</li>
+                }
+            </ol>
+        </div>*@
+
+        <div id="podCastImagDiv">
+
+            <div class="podCastImagDiv">
+                <button type="button" id="kickAssNews" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/3/9/2/1/3921b7c09a3aac5b/Kickass_News_blue.jpg" />
+                </button>
+            </div>
+            <div class="podCastImagDiv">
+                <button type="button" id="podSaveAmerica" class="podCastButton">
+                    <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/0d/28/33/81/0d283381-724c-4caa-abad-b470e950d72d/9fe8d62a052c05af026cccbc86ce1073e04f363fcc7c5fda6ce7b40c5ac23fad0bc8595632402b605e0683e40a6726f8cd25a9ee88ca38a3b1ac33b108a7c5c2.jpeg" />
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    $("#kickAssNews").on("click", function () {
+        window.location.href ='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://kickasspoliticspreview1.libsyn.com/kickasspolitics2", imgUrl = "http://static.libsyn.com/p/assets/3/9/2/1/3921b7c09a3aac5b/Kickass_News_blue.jpg" }))';
+                });
+              
+     $("#podSaveAmerica").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feeds.feedburner.com/pod-save-america", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/0d/28/33/81/0d283381-724c-4caa-abad-b470e950d72d/9fe8d62a052c05af026cccbc86ce1073e04f363fcc7c5fda6ce7b40c5ac23fad0bc8595632402b605e0683e40a6726f8cd25a9ee88ca38a3b1ac33b108a7c5c2.jpeg" }))';
+                });
+
+
+
+</script>

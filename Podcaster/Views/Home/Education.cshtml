@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Education";
+}
+
+<h2>Education</h2>
+
+@using Podcaster.Models
+@model IEnumerable<PodcastEpisodeModel>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <div id="startContentDiv">
+        @*<div id="popularPodcastsDiv">
+            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+            <ol id="ulListPopularPodcasts">
+                @foreach (PodcastEpisodeModel item in Model)
+            {
+                    <li id="popularEpisodeLi">@item.episodeTitle</li>
+                }
+            </ol>
+        </div>*@
+
+        <div id="podCastImagDiv">
+            <div class="podCastImagDiv">
+                <button type="button" id="coffeBreakSpanish" class="podCastButton">
+                    <img alt="" class="podCastImage" src="https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" />
+                </button>
+            </div>
+          
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    $("#coffeBreakSpanish").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://rss.acast.com/coffeebreakspanish", imgUrl = "https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" }))';
+                });
+
+</script>
