@@ -60,11 +60,7 @@
                     <img alt="" class="podCastImage" src="https://pbs.twimg.com/profile_images/459379225569423360/kF4Q-FsF_400x400.jpeg" />
                 </button>
             </div>
-            <div class="podCastImagDiv">
-                <button type="button" id="commonSense" class="podCastButton">
-                    <img alt="" class="podCastImage" src="http://www.dancarlin.com/graphics/CS_DC_iTunes.jpg" />
-                </button>
-            </div>
+
             <div class="podCastImagDiv">
                 <button type="button" id="cults" class="podCastButton">
                     <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/96/30/f0/f9/9630f0f9-d026-4eca-8270-32cdd50a5332/03702711c47585433a6269089d3a76ab57be814d5cbaf1430e53c4e9de812fb2ddc11a7cb7de02f851e2f9db8dd9249987f487cfc3bd05c7ede6bd571af40d79.jpeg" />
@@ -116,10 +112,8 @@
    
      $("#thisAmericanLife").on("click", function () {
                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feed.thisamericanlife.org/talpodcast", imgUrl = "https://pbs.twimg.com/profile_images/459379225569423360/kF4Q-FsF_400x400.jpeg" }))';
-                });
-    $("#commonSense").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feeds.feedburner.com/dancarlin/commonsense?format=xml", imgUrl = "http://www.dancarlin.com/graphics/CS_DC_iTunes.jpg" }))';
-                });
+     });
+
       $("#cults").on("click", function () {
                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "https://rss.art19.com/cults", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/96/30/f0/f9/9630f0f9-d026-4eca-8270-32cdd50a5332/03702711c47585433a6269089d3a76ab57be814d5cbaf1430e53c4e9de812fb2ddc11a7cb7de02f851e2f9db8dd9249987f487cfc3bd05c7ede6bd571af40d79.jpeg" }))';
                 });
