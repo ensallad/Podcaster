@@ -24,9 +24,10 @@ textarea {
 }
 
 
+
 /*For the start page*/
 #startContentDiv {
-   position:relative;
+    position: relative;
     float: left;
     height: 150%;
     width: 200%;
@@ -34,6 +35,7 @@ textarea {
     top: 0%;
     /*background-color:aquamarine;*/
 }
+
 
 #popularPodcastsDiv {
     position: relative;
@@ -88,6 +90,23 @@ textarea {
     width:12%;
     /*background-color:black;*/
 }
+
+/*For the category pages*/
+#startContentCategoryDiv {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+    top: 0%;
+}
+
+.podCastImagDivCategory {
+    float: left;
+    height: 23.5%;
+    width: 23.5%;
+}
+
 /*for playingpage   height:700px; 
     width:500px;*/
 #player {
