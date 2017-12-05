@@ -30,12 +30,11 @@ textarea {
     position: relative;
     float: left;
     height: 150%;
-    width: 200%;
+    width: 230%;
     left: 0%;
     top: 0%;
     /*background-color:aquamarine;*/
 }
-
 
 #popularPodcastsDiv {
     position: relative;
@@ -43,8 +42,7 @@ textarea {
     width: 10%;
     height: 10%;
     white-space: pre-line;
-    left: 0%;    
-    
+    left: 0%;        
 }
 
 #popularEpisodeLi {
@@ -53,8 +51,7 @@ textarea {
     font-size: 75%;
     white-space: pre-line;
     left: -15%;
-    margin-top: -5%;
-    
+    margin-top: -5%;    
 }
 
 #ulListPopularPodcasts {
@@ -79,19 +76,23 @@ textarea {
     left: 2%;
     margin-top: 0%;
 }
+
 .podCastImage {
     float:left;
     height: 100%;
     width: 100%;
 }
+
 .podCastImagDiv{
     float:left;
-    height:12%;
-    width:12%;
+    height:9.5%;
+    width:9.5%;
     /*background-color:black;*/
 }
 
+
 /*For the category pages*/
+
 #startContentCategoryDiv {
     position: relative;
     float: left;

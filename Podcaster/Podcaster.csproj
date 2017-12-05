@@ -269,6 +269,7 @@
     <Content Include="Views\Home\Society.cshtml" />
     <Content Include="Views\Home\Technology.cshtml" />
     <Content Include="Views\Home\Tv.cshtml" />
+    <Content Include="Views\Home\Sport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -244,5 +244,9 @@ namespace Podcaster.Controllers
             return View();
         }
 
+        public ActionResult Sport()
+        {
+            return View();
+        }
     }
 }

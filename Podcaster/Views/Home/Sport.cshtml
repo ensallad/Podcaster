@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Sport";
+}
+
+<h2>Sports & Recreation</h2>
+
+
+@using Podcaster.Models
+@model IEnumerable<PodcastEpisodeModel>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+    <div id="startContentCategoryDiv">
+        @*<div id="popularPodcastsDiv">
+                <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+                <ol id="ulListPopularPodcasts">
+                    @foreach (PodcastEpisodeModel item in Model)
+                {
+                        <li id="popularEpisodeLi">@item.episodeTitle</li>
+                    }
+                </ol>
+            </div>*@
+
+        <div id="podCastImagDiv">
+
+            <div class="podCastImagDivCategory">
+                <button type="button" id="mmaHour" class="podCastButton">
+                    <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/48/63/a0/06/4863a006-ec2d-4f03-937b-a953c1827298/248ba5b894e45d389f96273a0bb95e276d7ed17255239e4223f15af6c9ff77dcc759f63dbe771d233f96cbc6e36ed7bfadc7cfbd66545d2c791fed8d93fef561.jpeg" />
+                </button>
+            </div>
+            <div class="podCastImagDivCategory">
+                <button type="button" id="footballWeekly" class="podCastButton">
+                    <img alt="" class="podCastImage" src="https://uploads.guim.co.uk/2017/08/04/football-weekly-3000_(1).jpg" />
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+      $("#mmaHour").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://feeds.feedburner.com/TheMmaHourWithArielHelwani", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/48/63/a0/06/4863a006-ec2d-4f03-937b-a953c1827298/248ba5b894e45d389f96273a0bb95e276d7ed17255239e4223f15af6c9ff77dcc759f63dbe771d233f96cbc6e36ed7bfadc7cfbd66545d2c791fed8d93fef561.jpeg" }))';
+                });
+     $("#footballWeekly").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "https://www.theguardian.com/football/series/footballweekly/podcast.xml", imgUrl = "https://uploads.guim.co.uk/2017/08/04/football-weekly-3000_(1).jpg" }))';
+    });
+
+</script>
+
