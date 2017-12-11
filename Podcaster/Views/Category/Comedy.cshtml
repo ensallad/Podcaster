@@ -64,16 +64,16 @@
 <script>
 
      $("#theNerdist").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://nerdist.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/3/c/4/5/3c45b257669e76d7/nerdistlogo.jpg" }))';
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://nerdist.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/3/c/4/5/3c45b257669e76d7/nerdistlogo.jpg" }))';
                 });
      $("#rickySirius").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" }))';
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://deadlysiriussxm.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/c/2/4/3/c2438e97048dba3b/RG1400.jpg" }))';
                 });
     $("#billBurr").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://billburr.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" }))';
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://billburr.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/4/7/9/b/479b005a1d9a6fe6/Burr_image-062.jpg" }))';
                 });
     $("#jre").on("click", function () {
-                     window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://joeroganexp.joerogan.libsynpro.com/rss",imgUrl = "http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" }))';
+                     window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://joeroganexp.joerogan.libsynpro.com/rss",imgUrl = "http://static.libsyn.com/p/assets/7/1/f/3/71f3014e14ef2722/JREiTunesImage2.jpg" }))';
     });
 
 </script>

@@ -32,8 +32,15 @@
                 }
             </ol>
         </div>*@
-
+       
         <div id="podCastImagDiv">
+
+
+            <div class="podCastImagDivCategory">
+                <button type="button" id="newsInSlowSpanish" class="podCastButton">
+                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" />
+                </button>
+            </div>
             <div class="podCastImagDivCategory">
                 <button type="button" id="coffeBreakSpanish" class="podCastButton">
                     <img alt="" class="podCastImage" src="https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" />
@@ -49,8 +56,11 @@
 
 <script>
 
-    $("#coffeBreakSpanish").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://rss.acast.com/coffeebreakspanish", imgUrl = "https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" }))';
+     $("#newsInSlowSpanish").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://newsinslowspanish.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" }))';
                 });
+    $("#coffeBreakSpanish").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://rss.acast.com/coffeebreakspanish", imgUrl = "https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" }))';
+    });
 
 </script>

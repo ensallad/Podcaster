@@ -2,7 +2,7 @@
 @model IEnumerable<PodcastEpisodeModel>
 
 @{
-    ViewBag.Title = "PlayingPage";
+    ViewBag.Title = "Index";
 }
 
 @*<h2>PlayingPage</h2>*@
@@ -20,29 +20,30 @@
     <title>Index</title>
 </head>
 <body>
+
     <div id="episodeInfomationDiv">
         <div id="episodeImageDiv">
             <img id="episodeImage" style="height:350px; width:350px;" src="@ViewBag.newImageUrl" alt="imageError">
         </div>
 
 
-        <div id="listOfEpisodesDive">  
+        <div id="listOfEpisodesDive">
             <h4 id="listOfEpisodeHeader">Episodes</h4>
             <ul id="ulOfEpisodes">
                 @foreach (PodcastEpisodeModel item in Model)
-            {
-                var name = "Null";
+                {
+                    var name = "Null";
 
-                var seeIfEmpty = item.episodeTitle;
-                if (seeIfEmpty != null)
-                { name = seeIfEmpty; }              
-                <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, new { style = "color: black;" }); </li>
+                    var seeIfEmpty = item.episodeTitle;
+                    if (seeIfEmpty != null)
+                    { name = seeIfEmpty; }
+                    <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, new { style = "color: black;" }); </li>
                 }
             </ul>
         </div>
 
         <div id="descriptionDiv">
-            @ViewBag.choosenEpisodeDescription    
+            @ViewBag.choosenEpisodeDescription
         </div>
 
         <div id="audioPlayer">
@@ -58,7 +59,7 @@
 
     </div>
 
- 
+
 
 
     @*@Html.DropDownList("Direction", new List<SelectListItem>
@@ -69,43 +70,43 @@
 
     @*onclick="location.href='@Url.Action("Index", "Home")'"*@
 
-    
+
 
     @*<table id="tableId" cellpadding="0" cellspacing="0" border="1">
 
-      
-        @foreach (PodcastEpisodeModel item in Model)
-        {
-            var name = "Null";
 
-            var seeIfEmpty = item.episodeTitle;
-            if (seeIfEmpty != null)
-            { name = seeIfEmpty; }
-            <tr>
-                <th><b>@item.PodcastName</b></th>
+            @foreach (PodcastEpisodeModel item in Model)
+            {
+                var name = "Null";
 
-                <td>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, episodeName = name }, null)</td>               
-                <td>@item.Description</td>
-                <td>@item.PublicationDate</td>
-            </tr>
-        }
-    </table>*@
+                var seeIfEmpty = item.episodeTitle;
+                if (seeIfEmpty != null)
+                { name = seeIfEmpty; }
+                <tr>
+                    <th><b>@item.PodcastName</b></th>
+
+                    <td>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, episodeName = name }, null)</td>
+                    <td>@item.Description</td>
+                    <td>@item.PublicationDate</td>
+                </tr>
+            }
+        </table>*@
 
 
     @*<li>@Html.ActionLink(pod.episodeTitle, "Index", "Home")</li>*@
 
     @*<div id="listOfEpisodesDiv">
-        <ul>
-            @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
-            {
-                <li id="listItemTitle">@pod.episodeTitle</li>
-                <li id ="listItemUrl">@pod</li>
-                
-              
-            }
-        </ul>
-    </div>*@
-   
+            <ul>
+                @foreach (PodcastEpisodeModel pod in ViewBag.ListEpisode)
+                {
+                    <li id="listItemTitle">@pod.episodeTitle</li>
+                    <li id ="listItemUrl">@pod</li>
+
+
+                }
+            </ul>
+        </div>*@
+
 
 
 </body>
@@ -115,34 +116,34 @@
 
 
 
-            <script>
+<script>
 
                 $(document).ready(function () {
                     var audio = $("#player");
                     audio[0].load();//suspends and restores all audio element
                     audio[0].oncanplaythrough = audio[0].play();
-        
+
                 });
 
                 $("#listOfEpisodesDiv li").click(function () {
                     @*alert('@(Model.episodeUrl)');*@
-                    
+
                     @*var model = @Html.Raw(Json.Encode(Model));
 
                     var firstItem = model[1];*@
-                   
-                  
+
+
                     //alert(model);
                     //var gurka = model.episodeTitle;
                     //alert(gurka);
                     //alert(model.PodcastEpisodeModel.episodeTitle);
-              
+
                     //var str = ($(this).text());
 
                     //var substring = str.substr(0, str.indexOf('  '));
 
                     //var audio = $("#player");
-                 
+
                     //$("#mp3_src").attr("src", substring);
                     //audio[0].pause();
                     //audio[0].load();
@@ -151,4 +152,6 @@
     });
 
 
-            </script>
+</script>
+
+

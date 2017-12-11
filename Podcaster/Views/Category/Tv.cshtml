@@ -52,7 +52,7 @@
 
   
      $("#movieCrush").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "https://www.moviecrush.show/podcasts/movie-crush.rss", imgUrl = "https://s.hswstatic.com/gif/movie-crush-hero-logo.png" }))';
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "https://www.moviecrush.show/podcasts/movie-crush.rss", imgUrl = "https://s.hswstatic.com/gif/movie-crush-hero-logo.png" }))';
                 });
     
 </script>

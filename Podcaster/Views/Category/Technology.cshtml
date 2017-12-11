@@ -51,7 +51,7 @@
 <script>
 
     $("#freeCodeCamp").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://freecodecamp.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" }))';
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://freecodecamp.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/2/f/f/7/2ff7cc8aa33fe438/freecodecamp-square-logo-large-1400.jpg" }))';
     });
 
 

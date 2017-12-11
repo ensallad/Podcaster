@@ -34,7 +34,11 @@
 
         <div id="podCastImagDiv">
 
-     
+            <div class="podCastImagDivCategory">
+                <button type="button" id="hiddenBrain" class="podCastButton">
+                    <img alt="" class="podCastImage" src="https://media.npr.org/assets/img/2017/01/12/hiddenbrain_sq-c52ddc28021ba306c99f2a94f06e0f649b0b62cd.jpg?s=1400" />
+                </button>
+            </div>
             <div class="podCastImagDivCategory">
                 <button type="button" id="wakingUpPodcast" class="podCastButton">
                     <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" />
@@ -49,9 +53,12 @@
 
 <script>
 
+      $("#hiddenBrain").on("click", function () {
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "https://www.npr.org/rss/podcast.php?id=510308", imgUrl = "https://media.npr.org/assets/img/2017/01/12/hiddenbrain_sq-c52ddc28021ba306c99f2a94f06e0f649b0b62cd.jpg?s=200" }))';
+                });
     $("#wakingUpPodcast").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("PlayingPage","Home",new { rssFeed = "http://wakingup.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" }))';
+                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://wakingup.libsyn.com/rss",imgUrl = "http://static.libsyn.com/p/assets/1/8/a/d/18ad6729da327a39/New_Cover_no_border.jpg" }))';
     });
-   
+
 
 </script>
