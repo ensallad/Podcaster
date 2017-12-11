@@ -20,6 +20,11 @@
 <body>
     <br />
     <div id="startContentDiv">
+        
+        @*<a id="trendingButton" href="#"><p id="trendingText">Show/hide top trending podcasts</p></a>*@
+       
+        <button id="trendingButton" href="#">Trending podcast</button>
+
         <div id="popularPodcastsDiv">
             <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
             <ol id="ulListPopularPodcasts">
@@ -28,8 +33,10 @@
                     <li id="popularEpisodeLi">@item.episodeTitle</li>
                 }
             </ol>
+            <br />   
+            <br />
         </div>
-
+   
         <div id="podCastImagDiv">
 
             <div class="podCastImagDiv">
@@ -160,6 +167,10 @@
 </html>
 
 <script>
+    $("#trendingButton").click(function () {
+        $("#popularPodcastsDiv").toggle();
+    });
+
 
 
     $("#newsInSlowSpanish").on("click", function () {

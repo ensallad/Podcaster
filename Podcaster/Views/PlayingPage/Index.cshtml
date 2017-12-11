@@ -37,7 +37,7 @@
                     var seeIfEmpty = item.episodeTitle;
                     if (seeIfEmpty != null)
                     { name = seeIfEmpty; }
-                    <li>@Html.ActionLink(name, "PlayingPage", "Home", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, new { style = "color: black;" }); </li>
+                    <li>@Html.ActionLink(name, "Index", "PlayingPage", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, new { style = "color: black;" }); </li>
                 }
             </ul>
         </div>

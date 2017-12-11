@@ -36,13 +36,39 @@ textarea {
     /*background-color:aquamarine;*/
 }
 
+/*#trendingText{
+    color:black;
+}*/
+
+#trendingButton {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    color: black;
+    border: 1.5px solid #000000;
+    margin-bottom: 0.5%;
+
+}
+
+    #trendingButton:hover {
+        background-color:ghostwhite;
+    }
+
+#trendingButton:active {
+    background-color: #BDBDBD;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
 #popularPodcastsDiv {
     position: relative;
     float: left;
     width: 10%;
     height: 10%;
     white-space: pre-line;
-    left: 0%;        
+    left: 0%;
+    display: none;
 }
 
 #popularEpisodeLi {
