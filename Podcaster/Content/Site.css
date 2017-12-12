@@ -36,9 +36,21 @@ textarea {
     /*background-color:aquamarine;*/
 }
 
-/*#trendingText{
-    color:black;
-}*/
+.podCastButton {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+    .podCastButton:hover {
+        background-color: #BDBDBD
+    }
+
+    .podCastButton:active {
+        background-color: #BDBDBD;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
 
 #trendingButton {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -136,6 +148,8 @@ textarea {
 
 /*for playingpage   height:700px; 
     width:500px;*/
+
+
 #player {
     width: 100%;
     height: 40px;
@@ -194,17 +208,77 @@ textarea {
     margin-top:6%;
 }
 
-.podCastButton {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    cursor: pointer;
-    border-radius: 8px;
+    /*for the smaller screen sizes*/
+
+#listOfEpisodesDiveSmallScreen {
+    position: relative;
+    margin-top: 2%;
+    height: 100px;
+    width: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: pre-line;
+    display:none;
 }
-    .podCastButton:hover {
-        background-color: #BDBDBD
+
+#ulOfEpisodeDiveSmallScreens {
+    position: relative;
+    margin-top: 0%;
+}
+#listOfEpisodeHeaderSmallScreen {
+    position: relative;
+    float: left;
+    left: 6%;
+    margin-top: 0%;
+}
+
+@media all and (max-width: 720px) {
+    #listOfEpisodesDive {
+        float: right;
+        height: 350px;
+        width: 50%;
+        overflow-y: auto;
+        position: relative;
+        color: black;
+        display: none;
+    }
+    #trendingButton {
+        display:none;
+    }
+    #listOfEpisodesDiveSmallScreen {
+        position: relative;
+        margin-top: 2%;
+        height: 100px;
+        width: 80%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        white-space: pre-line;
+        display:block;
     }
 
-    .podCastButton:active {
-        background-color: #BDBDBD;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
     }
+
+
+/*@media all and (max-width: 479px) {
+    #listOfEpisodesDive {
+        float: right;
+        height: 350px;
+        width: 50%;
+        overflow-y: auto;
+        position: relative;
+        color: black;
+        display: none;
+    }
+
+    #descriptionDiv {
+        position: relative;
+        margin-top: 2%;
+        height: 100px;
+        width: 80%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        white-space: pre-line;
+        display: none;
+    }
+
+    }*/

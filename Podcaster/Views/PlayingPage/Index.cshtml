@@ -46,6 +46,22 @@
             @ViewBag.choosenEpisodeDescription
         </div>
 
+        <div id="listOfEpisodesDiveSmallScreen">
+            <h4 id="listOfEpisodeHeaderSmallScreen">Episodes</h4>
+            <ul id="ulOfEpisodeDiveSmallScreens">
+                @foreach (PodcastEpisodeModel item in Model)
+                {
+                    var name = "Null";
+
+                    var seeIfEmpty = item.episodeTitle;
+                    if (seeIfEmpty != null)
+                    { name = seeIfEmpty; }
+                    <li>@Html.ActionLink(name, "Index", "PlayingPage", new { rssFeed = ViewBag.rss, imgUrl = @ViewBag.newImageUrl, episodeName = name }, new { style = "color: black;" }); </li>
+                }
+            </ul>
+        </div>
+
+
         <div id="audioPlayer">
 
             <audio id="player" controls="controls">
@@ -56,6 +72,7 @@
             </audio>
 
         </div>
+
 
     </div>
 
