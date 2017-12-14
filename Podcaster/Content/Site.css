@@ -26,15 +26,16 @@ textarea {
 
 
 /*For the start page*/
-#startContentDiv {
+
+/*startcontentcategorydiv körs på båda just nu*/
+/*#startContentDiv {
     position: relative;
     float: left;
     height: 150%;
     width: 230%;
     left: 0%;
     top: 0%;
-    /*background-color:aquamarine;*/
-}
+}*/
 
 .podCastButton {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -121,12 +122,13 @@ textarea {
     width: 100%;
 }
 
-.podCastImagDiv{
+
+/*podCastImagDivCategory körs på båda just nu*/
+/*.podCastImagDiv{
     float:left;
     height:9.5%;
     width:9.5%;
-    /*background-color:black;*/
-}
+}*/
 
 
 /*For the category pages*/
@@ -258,27 +260,3 @@ textarea {
 
     }
 
-
-/*@media all and (max-width: 479px) {
-    #listOfEpisodesDive {
-        float: right;
-        height: 350px;
-        width: 50%;
-        overflow-y: auto;
-        position: relative;
-        color: black;
-        display: none;
-    }
-
-    #descriptionDiv {
-        position: relative;
-        margin-top: 2%;
-        height: 100px;
-        width: 80%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        white-space: pre-line;
-        display: none;
-    }
-
-    }*/
