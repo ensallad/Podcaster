@@ -1,0 +1,42 @@
+﻿@model Podcaster.Models.Podcast
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Podcast</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PodcastTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PodcastTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PodcastRss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PodcastRss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PodcastImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PodcastImage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
