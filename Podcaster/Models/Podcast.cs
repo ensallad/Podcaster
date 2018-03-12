@@ -15,5 +15,7 @@ namespace Podcaster.Models
 
         public string PodcastImage { get; set; }
 
+        public string Category { get; set; }
+
     }
 }

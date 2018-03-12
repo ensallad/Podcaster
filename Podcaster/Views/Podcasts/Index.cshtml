@@ -1,20 +1,28 @@
 ﻿@using Podcaster.Models
 @model IEnumerable<Podcaster.Models.Podcast>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@foreach (Podcast item in Model)
+{
+
+    <div class="podCastImagDivCategory">
+        <button type="button" id="podcastImageButton" class="podCastButton" onclick="location.href='@Url.Action("Index","PlayingPage",new { rssFeed = @item.PodcastRss, imgUrl = item.PodcastImage })'">
+            >
+            <img alt="" class="podCastImage" src=@item.PodcastImage />
+        </button>
+    </div>
+}
+
+
+@*@model IEnumerable<Podcaster.Models.Podcast>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-@foreach (Podcast item in Model)
-            {
-   
-<div class="podCastImagDivCategory">
-    <button type="button" id="podcastImageButton" class="podCastButton" onclick="location.href='@Url.Action("Index","PlayingPage",new { rssFeed = @item.PodcastRss, imgUrl = item.PodcastImage })'">>
-        <img alt="" class="podCastImage" src=@item.PodcastImage />
-    </button>
-</div>
-}
+<h2>Index</h2>*@
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -30,26 +38,33 @@
         <th>
             @Html.DisplayNameFor(model => model.PodcastImage)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PodcastTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PodcastRss)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PodcastImage)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodcastTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodcastRss)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PodcastImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

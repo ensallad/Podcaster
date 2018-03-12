@@ -201,12 +201,10 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
-    <Compile Include="Models\GetRssXml.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Podcast.cs" />
     <Compile Include="Models\PodcastEpisodeModel.cs" />
-    <Compile Include="Models\ValutaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -318,7 +316,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58613</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
