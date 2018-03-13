@@ -1,13 +1,14 @@
-﻿
+﻿@using Podcaster.Models
+@model IEnumerable<Podcaster.Models.Podcast>
+
 @{
     ViewBag.Title = "Education";
 }
 
 <h2>Education</h2>
 
-@using Podcaster.Models
-@model IEnumerable<PodcastEpisodeModel>
-
+@*@using Podcaster.Models
+    @model IEnumerable<PodcastEpisodeModel>*@
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -23,30 +24,18 @@
 <body>
     <br />
     <div id="startContentCategoryDiv">
-        @*<div id="popularPodcastsDiv">
-            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
-            <ol id="ulListPopularPodcasts">
-                @foreach (PodcastEpisodeModel item in Model)
-            {
-                    <li id="popularEpisodeLi">@item.episodeTitle</li>
-                }
-            </ol>
-        </div>*@
-       
+
         <div id="podCastImagDiv">
+            @foreach (Podcast item in Model)
+            {
 
-
-            <div class="podCastImagDivCategory">
-                <button type="button" id="newsInSlowSpanish" class="podCastButton">
-                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" />
-                </button>
-            </div>
-            <div class="podCastImagDivCategory">
-                <button type="button" id="coffeBreakSpanish" class="podCastButton">
-                    <img alt="" class="podCastImage" src="https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" />
-                </button>
-            </div>
-          
+                <div class="podCastImagDivCategory">
+                    <button type="button" id="podcastImageButton" class="podCastButton" onclick="location.href='@Url.Action("Index","PlayingPage",new { rssFeed = @item.PodcastRss, imgUrl = item.PodcastImage })'">
+                        >
+                        <img alt="" class="podCastImage" src=@item.PodcastImage />
+                    </button>
+                </div>
+            }
 
         </div>
     </div>
@@ -64,3 +53,21 @@
     });
 
 </script>
+
+
+
+
+
+
+@*//old*@
+
+@*<div class="podCastImagDivCategory">
+        <button type="button" id="newsInSlowSpanish" class="podCastButton">
+            <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" />
+        </button>
+    </div>
+    <div class="podCastImagDivCategory">
+        <button type="button" id="coffeBreakSpanish" class="podCastButton">
+            <img alt="" class="podCastImage" src="https://imagecdn.acast.com/image?h=1500&w=1500&source=https%3A%2F%2Facastprod.blob.core.windows.net%2Fmedia%2Fchannels%2F985e7c00-8945-4e0d-a4da-b93049180ce1%2Fimage%2Fart12-cbs-1200.jpg" />
+        </button>
+    </div>*@

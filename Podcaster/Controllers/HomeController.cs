@@ -15,8 +15,10 @@ namespace Podcaster.Controllers
 {
     public class HomeController : Controller
     {
-       
-        public ActionResult Index()
+        private DatabaseContext db = new DatabaseContext();
+
+        //tillfälligt namn för att testa       
+        public ActionResult TIndex()
        {
             string PodcastName;
 
@@ -85,5 +87,11 @@ namespace Podcaster.Controllers
             return View();
         }
 
+
+        public ActionResult Index()
+        {
+
+            return View(db.Podcasts.ToList());
+        }
     }
 }

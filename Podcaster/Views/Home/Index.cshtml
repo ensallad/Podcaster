@@ -1,5 +1,10 @@
 ﻿@using Podcaster.Models
-@model IEnumerable<PodcastEpisodeModel>
+@model IEnumerable<Podcaster.Models.Podcast>
+
+@*@using Podcaster.Models
+    @model IEnumerable<PodcastEpisodeModel>*@
+
+
 
 @{
     ViewBag.Title = "Home";
@@ -20,65 +25,94 @@
 <body>
     <br />
     <div id="startContentCategoryDiv">
-        
+
         @*<a id="trendingButton" href="#"><p id="trendingText">Show/hide top trending podcasts</p></a>*@
-       
+
         <button id="trendingButton" href="#">Trending podcast</button>
-        @*popularPodcastsDiv*@
-        <div id="popularPodcastsDiv">
-            <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
-            <ol id="ulListPopularPodcasts">
-                @foreach (PodcastEpisodeModel item in Model)
-            {
-                    <li id="popularEpisodeLi">@item.episodeTitle</li>
-                }
-            </ol>
-            <br />   
-            <br />
-        </div>
-   
+
         <div id="podCastImagDiv">
 
-            <div class="podCastImagDivCategory">
-                <button type="button" id="newsInSlowSpanish" class="podCastButton">
-                    <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" />
-                </button>
-            </div>
-            <div class="podCastImagDivCategory">
-                <button type="button" id="hiddenBrain" class="podCastButton">
-                    <img alt="" class="podCastImage" src="https://media.npr.org/assets/img/2017/01/12/hiddenbrain_sq-c52ddc28021ba306c99f2a94f06e0f649b0b62cd.jpg?s=1400" />
-                </button>
-            </div>
-            <div class="podCastImagDivCategory">
-                <button type="button" id="mmaHour" class="podCastButton">
-                    <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/48/63/a0/06/4863a006-ec2d-4f03-937b-a953c1827298/248ba5b894e45d389f96273a0bb95e276d7ed17255239e4223f15af6c9ff77dcc759f63dbe771d233f96cbc6e36ed7bfadc7cfbd66545d2c791fed8d93fef561.jpeg" />
-                </button>
-            </div>
-          
+            @foreach (Podcast item in Model)
+            {
+
+                <div class="podCastImagDivCategory">
+                    <button type="button" id="podcastImageButton" class="podCastButton" onclick="location.href='@Url.Action("Index","PlayingPage",new { rssFeed = @item.PodcastRss, imgUrl = item.PodcastImage })'">
+                        >
+                        <img alt="" class="podCastImage" src=@item.PodcastImage />
+                    </button>
+                </div>
+            }
 
         </div>
     </div>
 
+
 </body>
 </html>
 
-<script>
-    $("#trendingButton").click(function () {
-        $("#popularPodcastsDiv").toggle();
-    });
 
 
 
-    $("#newsInSlowSpanish").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("Index","PlayingPage",new { rssFeed = "http://newsinslowspanish.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" }))';
-                });
-    $("#hiddenBrain").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "https://www.npr.org/rss/podcast.php?id=510308", imgUrl = "https://media.npr.org/assets/img/2017/01/12/hiddenbrain_sq-c52ddc28021ba306c99f2a94f06e0f649b0b62cd.jpg?s=200" }))';
-                });
-    $("#mmaHour").on("click", function () {
-                    window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://feeds.feedburner.com/TheMmaHourWithArielHelwani", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/48/63/a0/06/4863a006-ec2d-4f03-937b-a953c1827298/248ba5b894e45d389f96273a0bb95e276d7ed17255239e4223f15af6c9ff77dcc759f63dbe771d233f96cbc6e36ed7bfadc7cfbd66545d2c791fed8d93fef561.jpeg" }))';
-                });
-   
 
 
-</script>
+
+@*popularPodcastsDiv
+
+
+    @*<div id="popularPodcastsDiv">
+                <h5 id="popularRightNowHeaderText">Top 10 trending</h5>
+                <ol id="ulListPopularPodcasts">
+                    @foreach (PodcastEpisodeModel item in Model)
+                    {
+                        <li id="popularEpisodeLi">@item.episodeTitle</li>
+                    }
+                </ol>
+                <br />
+                <br />
+            </div>
+
+            <div id="podCastImagDiv">
+
+                <div class="podCastImagDivCategory">
+                    <button type="button" id="newsInSlowSpanish" class="podCastButton">
+                        <img alt="" class="podCastImage" src="http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" />
+                    </button>
+                </div>
+                <div class="podCastImagDivCategory">
+                    <button type="button" id="hiddenBrain" class="podCastButton">
+                        <img alt="" class="podCastImage" src="https://media.npr.org/assets/img/2017/01/12/hiddenbrain_sq-c52ddc28021ba306c99f2a94f06e0f649b0b62cd.jpg?s=1400" />
+                    </button>
+                </div>
+                <div class="podCastImagDivCategory">
+                    <button type="button" id="mmaHour" class="podCastButton">
+                        <img alt="" class="podCastImage" src="https://dfkfj8j276wwv.cloudfront.net/images/48/63/a0/06/4863a006-ec2d-4f03-937b-a953c1827298/248ba5b894e45d389f96273a0bb95e276d7ed17255239e4223f15af6c9ff77dcc759f63dbe771d233f96cbc6e36ed7bfadc7cfbd66545d2c791fed8d93fef561.jpeg" />
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </body>
+    </html>
+
+    <script>
+        $("#trendingButton").click(function () {
+            $("#popularPodcastsDiv").toggle();
+        });
+
+
+
+        $("#newsInSlowSpanish").on("click", function () {
+                        window.location.href='@Html.Raw(@Url.Action("Index","PlayingPage",new { rssFeed = "http://newsinslowspanish.libsyn.com/rss", imgUrl = "http://static.libsyn.com/p/assets/1/a/b/e/1abe89ea8a42cc71/NIS_SpanishSpain_Intermediate_SqSM_HR.png" }))';
+                    });
+        $("#hiddenBrain").on("click", function () {
+                        window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "https://www.npr.org/rss/podcast.php?id=510308", imgUrl = "https://media.npr.org/assets/img/2017/01/12/hiddenbrain_sq-c52ddc28021ba306c99f2a94f06e0f649b0b62cd.jpg?s=200" }))';
+                    });
+        $("#mmaHour").on("click", function () {
+                        window.location.href='@Html.Raw(@Url.Action("Index", "PlayingPage", new { rssFeed = "http://feeds.feedburner.com/TheMmaHourWithArielHelwani", imgUrl = "https://dfkfj8j276wwv.cloudfront.net/images/48/63/a0/06/4863a006-ec2d-4f03-937b-a953c1827298/248ba5b894e45d389f96273a0bb95e276d7ed17255239e4223f15af6c9ff77dcc759f63dbe771d233f96cbc6e36ed7bfadc7cfbd66545d2c791fed8d93fef561.jpeg" }))';
+                    });
+
+
+
+    </script>*@

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Podcaster.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,51 +9,135 @@ namespace Podcaster.Controllers
 {
     public class CategoryController : Controller
     {
+        private DatabaseContext db = new DatabaseContext();
+
+
         // GET: Category
         public ActionResult Index()
         {
-            return Comedy();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Comedy")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult Comedy()
         {
 
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if(item.Category=="Comedy")
+                { podcastListCategory.Add(item); }
+            }
+        
+            return View(podcastListCategory);
         }
 
         public ActionResult Education()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Education")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult News()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "News")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult Science()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Science")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult Society()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Society")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult Technology()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Technology")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult Tv()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Tv")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
 
         public ActionResult Sport()
         {
-            return View();
+            List<Podcast> podcastList = db.Podcasts.ToList();
+            List<Podcast> podcastListCategory = new List<Podcast>();
+
+            foreach (Podcast item in podcastList)
+            {
+                if (item.Category == "Sport")
+                { podcastListCategory.Add(item); }
+            }
+
+            return View(podcastListCategory);
         }
     }
 }
